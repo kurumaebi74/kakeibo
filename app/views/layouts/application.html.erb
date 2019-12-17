@@ -10,6 +10,12 @@
   </head>
 
   <body>
+  <header>
+    <ul>
+      <li><%= link_to("支出登録","/post/new")%></li>
+      <li><%= link_to("支出一覧", "/") %></li>
+    </ul>
+  </header>
     <%= yield %>
   </body>
 </html>

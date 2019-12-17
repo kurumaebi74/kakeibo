@@ -1,0 +1,19 @@
+<table>
+    <tr>
+        <th>日付</th>
+        <th>使った項目</th>
+        <th>値段</th>
+        <th>備考</th>
+    </tr>
+    <% @posts.each do |posts| %>
+    <tr>
+        <td><%= posts.created_at.year.to_s+"年"+posts.created_at.month.to_s+"月"+posts.created_at.day.to_s+"日" %></td>
+        <td><%= posts.content %></td>
+        <td><%= posts.value %></td>
+        <td><%= posts.other %></td>
+        <td><%= link_to("編集","post/#{posts.id}/edit")%></td>
+        <td><%= link_to("削除","/post/#{posts.id}/destroy", {method: "post"}) %></td>
+
+    </tr>
+    <% end %>
+</table>

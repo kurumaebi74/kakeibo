@@ -1,0 +1,11 @@
+<%= form_tag("/post/#{@posts.id}/update") do %>
+<div>
+<h2>買ったもの</h2>
+<input type="text" name="content" value="<%= @posts.content %>">
+<h2>値段</h2>
+<input type="text" name="value" value="<%= @posts.value %>">
+<h2>その他</h2>
+<input type="text" name="other" value="<%= @posts.other %>">
+<input type="submit" value="登録">
+</div>
+<% end %>
