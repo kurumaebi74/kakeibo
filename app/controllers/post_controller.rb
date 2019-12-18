@@ -1,10 +1,11 @@
 class PostController < ApplicationController
+  require "date"
   def new
-    
+    @today = Date.today
   end
 
   def create
-    @posts = Post.new(content: params[:content],value: params[:value],other: params[:other])
+    @posts = Post.new(content: params[:content],value: params[:value],other: params[:other],date: params[:date])
     @posts.save
     if @posts.save
       redirect_to("/")
@@ -22,6 +23,7 @@ class PostController < ApplicationController
     @posts.content = params[:content]
     @posts.value = params[:value]
     @posts.other = params[:other]
+    @posts.date = params[:date]
     @posts.save
     redirect_to("/")
   end

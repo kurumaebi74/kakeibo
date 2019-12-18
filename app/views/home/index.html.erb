@@ -7,7 +7,7 @@
     </tr>
     <% @posts.each do |posts| %>
     <tr>
-        <td><%= posts.created_at.year.to_s+"年"+posts.created_at.month.to_s+"月"+posts.created_at.day.to_s+"日" %></td>
+        <td><%= posts.date %></td>
         <td><%= posts.content %></td>
         <td><%= posts.value %></td>
         <td><%= posts.other %></td>
