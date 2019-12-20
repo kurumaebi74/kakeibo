@@ -5,15 +5,19 @@
         <th>値段</th>
         <th>備考</th>
     </tr>
+    <h2><%= "#{@today.year}年#{@today.month}月分支出"%></h2>
     <% @posts.each do |posts| %>
-    <tr>
-        <td><%= posts.date %></td>
-        <td><%= posts.content %></td>
-        <td><%= posts.value %></td>
-        <td><%= posts.other %></td>
-        <td><%= link_to("編集","post/#{posts.id}/edit")%></td>
-        <td><%= link_to("削除","/post/#{posts.id}/destroy", {method: "post"}) %></td>
-
-    </tr>
+        <% if posts.date.month == @today.month %>
+        <tr>
+            <td><%= posts.date.strftime("%m月%d日") %></td>
+            <td><%= posts.content %></td>
+            <td><%= posts.value %></td>
+            <td><%= posts.other %></td>
+            <td><%= link_to("編集","post/#{posts.id}/edit")%></td>
+            <td><%= link_to("削除","/post/#{posts.id}/destroy", {method: "post"}) %></td>
+        </tr>
+        <% @all_value = @all_value + posts.value.to_i %>
+        <% end %>
     <% end %>
 </table>
+<p><%= "#{@today.month}月分支出合計　　　#{@all_value}円" %></p>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get '/' => "home#index"
+  get '/past' => "home#past"
   get 'post/new' => "post#new"
   get 'post/:id/edit' => "post#edit"
   post '/post/create' => "post#create"

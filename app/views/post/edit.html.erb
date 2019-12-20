@@ -1,7 +1,7 @@
 <%= form_tag("/post/#{@posts.id}/update") do %>
 <div>
 <h2>日付</h2>
-<input type="date" name="date" value="<%= @posts.time.year.to_s+"-"+@posts.time.month.to_s+"-"+@posts.time.day.to_s %>">
+<input type="date" name="date" value="<%= @posts.date %>">
 <h2>買ったもの</h2>
 <input type="text" name="content" value="<%= @posts.content %>">
 <h2>値段</h2>
