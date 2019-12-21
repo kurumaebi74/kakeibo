@@ -4,6 +4,11 @@ class HomeController < ApplicationController
     @posts = Post.all.order(date: :desc)
     @today = Date.today
     @all_value = 0
+    @posts.each do |posts|
+      if posts.date.month == @today.month
+        @all_value = @all_value + posts.value.to_i
+      end
+    end
   end
 
   def past
