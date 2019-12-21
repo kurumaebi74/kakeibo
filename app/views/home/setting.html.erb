@@ -1,11 +1,25 @@
+<div class="post_box">
+<h1 class="title">設定</h1>
 <%= form_tag("/addcategory") do %>
-<h2>費目追加</h2>
-<input type="text" name="content">
-<input type="submit" value="追加">
+<h2 class="category_title">費目追加</h2>
+<% @category.errors.full_messages.each do |message| %>
+<div class="form-error">
+<%= message %>
+</div>
 <% end %>
-<h2>費目一覧</h2>
-<table>
-<% @category.each do |category| %>
+<p>費目</p>
+<input type="text" name="content">
+<p>予算</p>
+<input type="text" name= "budget">
+<input class="submit_btn" type="submit" value="追加">
+<% end %>
+<h2 class="category_title">費目一覧</h2>
+<table class="category_list">
+<tr>
+<th>費目</th>
+<th>予算</th>
+</tr>
+<% @cate.each do |category| %>
     <tr>
     <td><%= category.content %></td>
     <td><%= category.budget %></td>
@@ -14,4 +28,5 @@
     </tr>
 <% end %>
 </table>
+</div>
 

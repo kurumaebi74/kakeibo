@@ -1,11 +1,22 @@
+<div class="post_form">
+
+<% @posts.errors.full_messages.each do |message| %>
+<div class="form-error">
+<%= message %>
+</div>
+<% end %>
+
 <%= form_tag("/post/#{@posts.id}/update") do %>
-<div>
 <h2>日付</h2>
 <input type="date" name="date" value="<%= @posts.date %>">
 <h2>費用項目</h2>
 <select name="category">
 <% @categorys.each do |category| %>
-    <option><%= category.content %></option>
+    <% if @posts.category == category.content %>
+        <option value="<%= category.content %>" selected><%= category.content %></option>
+    <% else %>
+        <option value="<%= category.content %>"><%= category.content %></option>
+    <% end %>
 <% end %>
 </select>
 <h2>買ったもの</h2>
@@ -14,6 +25,6 @@
 <input type="text" name="value" value="<%= @posts.value %>">
 <h2>その他</h2>
 <input type="text" name="other" value="<%= @posts.other %>">
-<input type="submit" value="登録">
-</div>
+<input class="submit_btn" type="submit" value="登録">
 <% end %>
+</div>

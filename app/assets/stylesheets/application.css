@@ -6,20 +6,11 @@ body{
     max-width: 960px;
     margin: 0 auto;
     background-color: #fff;
-    padding: ;
 }
 
 header{
     background-color: #4C72AA;
-    
     padding: 4px;
-}
-
-header h2{
-    text-transform: uppercase;
-    text-align: center;
-    color: #fff;
-    line-height: 50px;
 }
 
 .main_menu{
@@ -30,6 +21,7 @@ header h2{
 }
 ul.main_menu{
     margin-top: 15px;
+    margin-bottom: 2px;
 }
 
 .main_menu li{
@@ -47,6 +39,156 @@ ul.main_menu{
 .main_menu a:hover{
     color: #59d5d8;
 }
+
+.flash{
+    background-color: #62c272;
+    color: #ffffff;
+    text-align: center;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+/* post */
+.post_form{
+    background-color: #DDDDE8;
+    padding: 5%;
+    border-radius: 30px;
+    box-shadow: 2px 2px 4px #555 !important;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.post_form input,select,.post_box input{
+    width: 100%;
+}
+.post_form h2{
+    margin-bottom: 0px;
+}
+input.submit_btn{
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 50%;
+    display: block;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: center;
+    padding: 0 25px;
+    height: 50px;
+    line-height: 50px;
+    min-width: 180px;
+    background: #444444;
+    color: #fff;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.post_box{
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 10px;
+    background-color: #DDDDE8;
+    padding: 5% 5%;
+    border-radius: 10px;
+
+}
+.post_box table{
+    padding: 4px;
+    border-collapse: collapse;
+    width: 100%;
+}
+.post_box p{
+    margin: 0 auto;
+}
+.month_title{
+    padding: 5px;
+    background-color: #ffffff;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.month_all p{
+    margin: 0 auto;
+    margin-right: 10px;
+    padding-top: 2px;
+    text-align: right;
+}
+
+.month_all h3{
+    margin: 0 auto;
+    margin-left: 10px;
+    text-align: left;
+    padding-top: 2px;
+}
+
+.month_all{
+    background-color: #fff;
+    padding: 4px;
+}
+
+.month_all h3{
+    border-top: 0.5px solid #DDDDE8;
+}
+
+
+.daily_cashflow{
+    background-color: #fff;
+    border-top: 0.5px solid #DDDDE8;
+    padding: 10px 10px;
+}
+
+.daily_cashflow td{
+    padding: 5px;
+}
+.daily_cashflow td p{
+    margin: 0 auto;
+    opacity: 0.5;
+}
+
+dd{
+    display: none;
+    margin: 0 auto;
+    widows: 100%;
+}
+
+.category_title{
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+.category_list tr td{
+    background-color: #fff;
+    border-bottom:  #DDDDE8 solid 0.5px;
+}
+
+.title{
+    margin: 0 auto;
+}
+
+.form-error{
+    color: red;
+    font-size: 15px;
+    text-align: center;
+}
+
+.fas{
+    text-align: right;
+    transition: all .3s ease;
+}
+
+.active {
+    transform: rotate(180deg);
+}
+
+.category_all_value_list{
+    border-collapse: collapse;
+}
+
+.category_all_value_list tr td{
+    text-align: center;
+}
+
 
 /* ノーマライズ */
 

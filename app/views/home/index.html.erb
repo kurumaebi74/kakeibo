@@ -1,24 +1,36 @@
-<h2><%= "#{@today.year}年#{@today.month}月分支出"%></h2>
-<p><%= "#{@today.month}月分支出合計　　　#{@all_value}円" %></p>
-<table>
+<div class="post_box">
+<h1 class="title">当月支出</h1>
+<h2 class="month_title"><%= "#{@today.year}年#{@today.month}月分支出"%></h2>
+<div class="month_all">
+<h3><%= "支出合計" %></h3>
+<p><%= "#{@all_value}円" %></p>
+<h3>費目集計</h3>
+<table class="category_all_value_list">
+<% @category_all_value.each do |category_value| %>
+<% @cate=Category.find_by(content: category_value[0])%>
     <tr>
-        <th>日付</th>
-        <th>費用項目</th>
-        <th>使った項目</th>
-        <th>値段</th>
-        <th>備考</th>
+        <td><%= category_value[0] %></td>
+        <td><%= "#{category_value[1]}円" %></td>
+        <% if @cate.budget != "0" %>
+        <td><%= "予算:#{@cate.budget}円"%></td>
+        <% else %>
+        <td>予算登録はありません</td>
+        <% end %>
     </tr>
+<% end %>
+</table>
+</div>
+<table>
     <% @posts.each do |posts| %>
         <% if posts.date.month == @today.month %>
-        <tr>
-            <td><%= posts.date.strftime("%m月%d日") %></td>
-            <td><%= posts.category %></td>
+        <tr class="daily_cashflow">
+            <td><%= posts.category %><br><p><%= posts.date.strftime("%m/%d") %></p></td>
             <td><%= posts.content %></td>
-            <td><%= posts.value %></td>
-            <td><%= posts.other %></td>
-            <td><%= link_to("編集","post/#{posts.id}/edit")%></td>
-            <td><%= link_to("削除","/post/#{posts.id}/destroy", {method: "post"}) %></td>
+            <td><%= "#{posts.value}円" %></td>
+            <td class="btn"><%= link_to("編集","post/#{posts.id}/edit")%></td>
+            <td class="btn"><%= link_to("削除","/post/#{posts.id}/destroy", {method: "post"}) %></td>
         </tr>
         <% end %>
     <% end %>
 </table>
+</div>

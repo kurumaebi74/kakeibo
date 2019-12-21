@@ -1,7 +1,9 @@
+<div class="post_form">
 <%= form_tag("/#{@category.id}/update") do %>
 <h2>費目名</h2>
 <input type="text" name="content" value="<%= @category.content %>">
 <h2>費目月予算</h2>
 <input type="text" name="budget" value="<%= @category.budget%>">
-<input type="submit" value="変更">
+<input class="submit_btn" type="submit" value="変更">
 <% end %>
+</div>

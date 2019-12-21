@@ -1,19 +1,27 @@
+<div class="post_form">
+<h1 class="title">支出登録</h1>
+
+<% @posts.errors.full_messages.each do |message| %>
+<div class="form-error">
+<%= message %>
+</div>
+<% end %>
+
 <%= form_tag('/post/create') do %>
-<div>
 <h2>日付</h2>
-<input type="date" name="date" value="<%= @today.year.to_s+"-"+@today.month.to_s+"-"+@today.day.to_s %>">
+<input type="date" name="date" value="<%= @today %>">
 <h2>費用項目</h2>
 <select name="category" name="category">
 <% @categorys.each do |category| %>
-    <option><%= category.content %></option>
+<option><%= category.content %></option>
 <% end %>
 </select>
 <h2>買ったもの</h2>
-<input type="text" name="content">
+<input type="text" name="content" value="<%= @posts.content %>">
 <h2>値段</h2>
-<input type="text" name="value">
+<input type="text" name="value" value="<%= @posts.value %>">
 <h2>その他</h2>
-<input type="text" name="other">
-<input type="submit" value="登録">
-</div>
+<input type="text" name="other" value="<%= @posts.other %>">
+<input class="submit_btn" type="submit" value="登録">
 <% end %>
+</div>
