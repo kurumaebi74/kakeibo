@@ -1,6 +1,7 @@
 <table>
     <tr>
         <th>日付</th>
+        <th>費用項目</th>
         <th>使った項目</th>
         <th>値段</th>
         <th>備考</th>
@@ -10,6 +11,7 @@
         <% if posts.date.month == @today.month %>
         <tr>
             <td><%= posts.date.strftime("%m月%d日") %></td>
+            <td><%= posts.category %></td>
             <td><%= posts.content %></td>
             <td><%= posts.value %></td>
             <td><%= posts.other %></td>

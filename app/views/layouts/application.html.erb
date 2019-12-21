@@ -15,8 +15,14 @@
       <li><%= link_to("支出登録","/post/new")%></li>
       <li><%= link_to("当月支出", "/") %></li>
       <li><%= link_to("過去6か月間支出","/past")%></li>
+      <li><%= link_to("設定","/setting")%></li>
     </ul>
   </header>
+  <% if flash[:notice] %>
+    <div class="flash">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
     <%= yield %>
   </body>
 </html>

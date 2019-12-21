@@ -2,6 +2,12 @@
 <div>
 <h2>日付</h2>
 <input type="date" name="date" value="<%= @posts.date %>">
+<h2>費用項目</h2>
+<select name="category">
+<% @categorys.each do |category| %>
+    <option><%= category.content %></option>
+<% end %>
+</select>
 <h2>買ったもの</h2>
 <input type="text" name="content" value="<%= @posts.content %>">
 <h2>値段</h2>

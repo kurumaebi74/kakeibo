@@ -1,0 +1,17 @@
+<%= form_tag("/addcategory") do %>
+<h2>費目追加</h2>
+<input type="text" name="content">
+<input type="submit" value="追加">
+<% end %>
+<h2>費目一覧</h2>
+<table>
+<% @category.each do |category| %>
+    <tr>
+    <td><%= category.content %></td>
+    <td><%= category.budget %></td>
+    <td><%= link_to("編集","/#{category.id}/edit")%></td>
+    <td><%= link_to("削除","/#{category.id}/category_destroy",{method: "post"})%></td>
+    </tr>
+<% end %>
+</table>
+

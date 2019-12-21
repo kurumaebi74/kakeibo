@@ -2,12 +2,14 @@ class PostController < ApplicationController
   require "date"
   def new
     @today = Date.today
+    @categorys = Category.all
   end
 
   def create
-    @posts = Post.new(content: params[:content],value: params[:value],other: params[:other],date: params[:date])
+    @posts = Post.new(content: params[:content],value: params[:value],other: params[:other],date: params[:date],category: params[:category])
     @posts.save
     if @posts.save
+      flash[:notice] ="支出情報が登録されました"
       redirect_to("/")
     else
       render("post/new")
@@ -16,6 +18,7 @@ class PostController < ApplicationController
 
   def edit
     @posts = Post.find_by(id: params[:id])
+    @categorys= Category.all
   end
 
   def update
@@ -24,13 +27,16 @@ class PostController < ApplicationController
     @posts.value = params[:value]
     @posts.other = params[:other]
     @posts.date = params[:date]
+    @posts.category= params[:category]
     @posts.save
+    flash[:notice] ="支出情報が更新されました"
     redirect_to("/")
   end
 
   def destroy
     @posts = Post.find_by(id: params[:id])
     @posts.destroy
+    flash[:notice] ="支出情報が削除されました"
     redirect_to("/")
   end
 end

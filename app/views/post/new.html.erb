@@ -2,13 +2,18 @@
 <div>
 <h2>日付</h2>
 <input type="date" name="date" value="<%= @today.year.to_s+"-"+@today.month.to_s+"-"+@today.day.to_s %>">
+<h2>費用項目</h2>
+<select name="category" name="category">
+<% @categorys.each do |category| %>
+    <option><%= category.content %></option>
+<% end %>
+</select>
 <h2>買ったもの</h2>
 <input type="text" name="content">
 <h2>値段</h2>
 <input type="text" name="value">
 <h2>その他</h2>
 <input type="text" name="other">
-
 <input type="submit" value="登録">
 </div>
 <% end %>
