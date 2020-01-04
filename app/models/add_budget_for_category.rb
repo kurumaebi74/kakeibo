@@ -1,0 +1,2 @@
+class AddBudgetForCategory < ApplicationRecord
+end
